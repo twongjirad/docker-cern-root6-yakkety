@@ -27,7 +27,7 @@ RUN apt-get update && \
     cd /tmp/ && \
     wget https://root.cern.ch/download/root_v6.08.06.source.tar.gz && tar -zxvf root_v6.08.06.source.tar.gz -C /tmp/ && \
     mkdir -p /tmp/build && cd /tmp/build && \
-    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DGNUINSTALL=ON -DMINUIT2=ON /tmp/root-6.08.06 && \
+    cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DGNUINSTALL=ON -Dminuit2:BOOL=ON /tmp/root-6.08.06 && \
     cmake --build . --target install -- -j4 && \
     rm /tmp/root_v6.08.06.source.tar.gz && rm -r /tmp/build && rm -r /tmp/root-6.08.06 && \
     apt-get autoremove -y && apt-get clean -y
